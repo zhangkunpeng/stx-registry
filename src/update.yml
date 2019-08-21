@@ -33,7 +33,7 @@
   - name: docker remove local images
     docker_image:
       name: "{{item}}"
-      force_absent: yes
+      state: absent
     with_items: 
       - "{{images.docker}}"
 
