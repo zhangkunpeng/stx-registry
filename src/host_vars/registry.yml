@@ -1,0 +1,3 @@
+
+gcr_registry: gcr.azk8s.cn/
+k8s_registry: gcr.azk8s.cn/google-containers/
