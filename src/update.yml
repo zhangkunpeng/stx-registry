@@ -1,7 +1,8 @@
 ---
 - name: upload images
-  hosts: local
+  hosts: localhost
   gather_facts: no
+  become: yes
   vars_files:
   - host_vars/stx_images.yml
   - host_vars/registry.yml
@@ -13,19 +14,12 @@
   - debug: var=gcr_registry
 
   - name: Install Docker Service
-    become: yes
     apt: name=docker update_cache=yes
 
-  - name: install python-pip
-    become: yes
-    apt: name={{ item }}
-    with_items:
-      - python-pip
-  
-  - name: Upgrade pip
-    pip:
+  - name: Install pip
+    easy_install: 
       name: pip
-      extra_args: --upgrade
+      state: latest
 
   - name: Install Docker-py
     pip: name=docker-py

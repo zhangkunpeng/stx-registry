@@ -1,7 +1,8 @@
 #! /bin/bash
 
-set +x
+set -x
 cp -r src /usr/share/stx-images-update
-
-echo "0 17 * * * root ansible-playboot /usr/share/stx-images-update/update.yml" >> /etc/crontab
-
+cat /etc/crontab |grep "ansible-playbook /usr/share/stx-images-update/update.yml"
+if [ $? -eq 0 ];then
+    echo "0 17 * * * root ansible-playbook /usr/share/stx-images-update/update.yml" >> /etc/crontab
+fi
