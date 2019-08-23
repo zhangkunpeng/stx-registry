@@ -1,4 +1,4 @@
 #!/bin/bash
-touch /usr/share/.run
+touch /usr/share/stx-images-update/.run
 ansible-playbook /usr/share/stx-images-update/update.yml
-rm -rf /usr/share/.run
+rm -rf /usr/share/stx-images-update/.run
