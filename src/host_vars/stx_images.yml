@@ -1,27 +1,32 @@
 ---
 images:
+  starlingx:
+    names:
+    - starlingx/stx-placement
+    - starlingx/stx-nova
+    - starlingx/stx-neutron
+    - starlingx/stx-keystone
+    - starlingx/stx-horizon
+    - starlingx/stx-heat
+    - starlingx/stx-gnocchi
+    - starlingx/stx-glance
+    - starlingx/stx-cinder
+    - starlingx/stx-ceilometer
+    - starlingx/stx-barbican
+    - starlingx/stx-panko
+    - starlingx/stx-ironic
+    - starlingx/stx-aodh
+    - starlingx/stx-keystone-api-proxy
+    - starlingx/stx-nova-api-proxy
+    - starlingx/stx-libvirt
+    - starlingx/stx-ovs
+    - starlingx/k8s-cni-sriov
+    - starlingx/stx-mariadb
+    tags:
+    - master-centos-stable-latest
+    - rc-2.0-centos-stable-latest
   docker:
   - rabbitmq:3.7-management
-  - starlingx/stx-placement:master-centos-stable-latest
-  - starlingx/stx-nova:master-centos-stable-latest
-  - starlingx/stx-neutron:master-centos-stable-latest
-  - starlingx/stx-keystone:master-centos-stable-latest
-  - starlingx/stx-horizon:master-centos-stable-latest
-  - starlingx/stx-heat:master-centos-stable-latest
-  - starlingx/stx-gnocchi:master-centos-stable-latest
-  - starlingx/stx-glance:master-centos-stable-latest
-  - starlingx/stx-cinder:master-centos-stable-latest
-  - starlingx/stx-ceilometer:master-centos-stable-latest
-  - starlingx/stx-barbican:master-centos-stable-latest
-  - starlingx/stx-panko:master-centos-stable-latest
-  - starlingx/stx-ironic:master-centos-stable-latest
-  - starlingx/stx-aodh:master-centos-stable-latest
-  - starlingx/stx-keystone-api-proxy:master-centos-stable-latest
-  - starlingx/stx-nova-api-proxy:master-centos-stable-latest
-  - starlingx/stx-libvirt:master-centos-stable-latest
-  - starlingx/stx-ovs:master-centos-stable-latest
-  - starlingx/k8s-cni-sriov:master-centos-stable-latest
-  - starlingx/stx-mariadb:master-centos-stable-latest
   - kolla/ubuntu-source-nova-novncproxy:ocata
   - rabbitmq:3.7.13-management
   - rabbitmq:3.7.13
@@ -39,26 +44,6 @@ images:
   - kbudde/rabbitmq-exporter:v0.21.0
   - nginx:1.13.3
   - prom/mysqld-exporter:v0.10.0
-  - starlingx/stx-placement:rc-2.0-centos-stable-latest
-  - starlingx/stx-nova:rc-2.0-centos-stable-latest
-  - starlingx/stx-neutron:rc-2.0-centos-stable-latest
-  - starlingx/stx-keystone:rc-2.0-centos-stable-latest
-  - starlingx/stx-horizon:rc-2.0-centos-stable-latest
-  - starlingx/stx-heat:rc-2.0-centos-stable-latest
-  - starlingx/stx-gnocchi:rc-2.0-centos-stable-latest
-  - starlingx/stx-glance:rc-2.0-centos-stable-latest
-  - starlingx/stx-cinder:rc-2.0-centos-stable-latest
-  - starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
-  - starlingx/stx-barbican:rc-2.0-centos-stable-latest
-  - starlingx/stx-panko:rc-2.0-centos-stable-latest
-  - starlingx/stx-ironic:rc-2.0-centos-stable-latest
-  - starlingx/stx-aodh:rc-2.0-centos-stable-latest
-  - starlingx/stx-keystone-api-proxy:rc-2.0-centos-stable-latest
-  - starlingx/stx-nova-api-proxy:rc-2.0-centos-stable-latest
-  - starlingx/stx-libvirt:rc-2.0-centos-stable-latest
-  - starlingx/stx-ovs:rc-2.0-centos-stable-latest
-  - starlingx/k8s-cni-sriov:rc-2.0-centos-stable-latest
-  - starlingx/stx-mariadb:rc-2.0-centos-stable-latest
   quay:
   - quay.io/airshipit/armada:dd2e56c473549fd16f94212b553ed58c48d1f51b-ubuntu_bionic
   - quay.io/calico/node:v3.6.2
