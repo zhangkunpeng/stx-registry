@@ -1,0 +1,56 @@
+---
+- name: archive images
+  hosts: remote
+  gather_facts: no
+  become: yes
+  vars_files:
+  - host_vars/stx_images.yml
+  - host_vars/registry.yml
+
+  tasks:
+  - debug: var=images
+
+  - name: Add Tag for gcr.io image
+    docker_image:
+      name: "{{gcr_registry + item | regex_replace('gcr.io/')}}"
+      repository: "{{item}}"
+      force_tag: yes
+      source: local
+    with_items:
+      - "{{images.gcr}}"
+
+  - name: Add Tag for k8s.gcr.io image
+    docker_image:
+      name: "{{k8s_registry + item | regex_replace('k8s.gcr.io/')}}"
+      repository: "{{item}}"
+      force_tag: yes
+      source: local
+    with_items:
+      - "{{images.k8s}}"
+
+  - name: create dirs
+    file:
+      path: "/root/images"
+      state: directory
+      mode: 0755
+
+  - name: archive base image
+    docker_image:
+      name: "{{item}}"
+      archive_path: "/root/images/{{item|basename}}.tar"
+      source: local
+    with_items:
+      - "{{images.gcr}}"
+      - "{{images.k8s}}"
+      - "{{images.docker}}"
+      - "{{images.quay}}"
+
+  - name: archive starlingx image
+    docker_image:
+      name: "{{item[0]}}"
+      tag: "{{item[1]}}"
+      archive_path: "/root/images/{{item[0]|basename}}:{{item[1]}}.tar"
+      source: local
+    with_nested: 
+      - "{{images.starlingx.names}}"
+      - "{{images.starlingx.tags}}"

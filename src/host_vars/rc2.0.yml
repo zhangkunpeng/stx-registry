@@ -1,0 +1,35 @@
+REPOSITORY                                                                           TAG                                                      IMAGE ID            CREATED             SIZE
+starlingx/k8s-plugins-sriov-network-device                                           master-centos-stable-latest                              4c020b463eb6        3 days ago          20.3MB
+starlingx/k8s-cni-sriov                                                              master-centos-stable-latest                              b33bd373890a        3 days ago          228MB
+starlingx/stx-placement                                                              rc-2.0-centos-stable-latest                              ef3df8fbded2        6 days ago          728MB
+starlingx/stx-nova                                                                   rc-2.0-centos-stable-latest                              2d4294a003e4        6 days ago          1.19GB
+starlingx/stx-neutron                                                                rc-2.0-centos-stable-latest                              215a716f0a0d        6 days ago          808MB
+starlingx/stx-keystone                                                               rc-2.0-centos-stable-latest                              ae76a5887590        6 days ago          764MB
+starlingx/stx-horizon                                                                rc-2.0-centos-stable-latest                              9abc491c3b2f        6 days ago          812MB
+starlingx/stx-heat                                                                   rc-2.0-centos-stable-latest                              6971f4e09ee0        6 days ago          789MB
+starlingx/stx-gnocchi                                                                rc-2.0-centos-stable-latest                              6201ea861c48        6 days ago          834MB
+starlingx/stx-glance                                                                 rc-2.0-centos-stable-latest                              3c0a92bf7cdf        6 days ago          781MB
+starlingx/stx-cinder                                                                 rc-2.0-centos-stable-latest                              1ea0244f2c76        6 days ago          866MB
+starlingx/stx-ceilometer                                                             rc-2.0-centos-stable-latest                              f1f1f3efee8a        6 days ago          836MB
+starlingx/stx-barbican                                                               rc-2.0-centos-stable-latest                              e7bb8e6328df        6 days ago          703MB
+starlingx/stx-panko                                                                  rc-2.0-centos-stable-latest                              b860e339d19b        6 days ago          758MB
+starlingx/stx-ironic                                                                 rc-2.0-centos-stable-latest                              fb95948a96f8        6 days ago          819MB
+starlingx/stx-aodh                                                                   rc-2.0-centos-stable-latest                              39460e51632d        6 days ago          781MB
+starlingx/stx-keystone-api-proxy                                                     rc-2.0-centos-stable-latest                              2132704e52de        6 days ago          827MB
+starlingx/stx-nova-api-proxy                                                         rc-2.0-centos-stable-latest                              263b9179f2e3        6 days ago          662MB
+starlingx/stx-libvirt                                                                rc-2.0-centos-stable-latest                              a320a3c5201a        6 days ago          683MB
+starlingx/stx-ovs                                                                    rc-2.0-centos-stable-latest                              130a76784b63        6 days ago          757MB
+starlingx/stx-mariadb                                                                rc-2.0-centos-stable-latest                              69c9e52f19a3        6 days ago          520MB
+rabbitmq                                                                             3.7-management                                           7601e834fa14        3 weeks ago         177MB
+kolla/ubuntu-source-nova-novncproxy                                                  ocata                                                    6f3a7a27d799        2 months ago        1GB
+quay.io/airshipit/armada                                                             dd2e56c473549fd16f94212b553ed58c48d1f51b-ubuntu_bionic   e6e1b0070bc1        2 months ago        461MB
+quay.io/calico/node                                                                  v3.6.2                                                   707815f0ee0a        3 months ago        73.2MB
+quay.io/calico/cni                                                                   v3.6.2                                                   14f1e7286a2d        3 months ago        84.3MB
+quay.io/calico/kube-controllers                                                      v3.6.2                                                   c4b7095e1af2        3 months ago        50.9MB
+k8s.gcr.io/kube-proxy                                                                v1.13.5                                                  2ee69cad74bf        5 months ago        80.2MB
+k8s.gcr.io/kube-apiserver                                                            v1.13.5                                                  90332c1b9a4b        5 months ago        181MB
+k8s.gcr.io/kube-controller-manager                                                   v1.13.5                                                  b6b315f4f34a        5 months ago        146MB
+k8s.gcr.io/kube-scheduler                                                            v1.13.5                                                  c629ac1dae38        5 months ago        79.6MB
+
+k8s.gcr.io/pause                                                                     3.1                                                      da86e6ba6ca1        20 months ago       742kB
+quay.io/kubernetes-ingress-controller/nginx-ingress-controller                       0.9.0                                                    e56d6a14283a        21 months ago       190MB

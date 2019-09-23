@@ -1,6 +1,6 @@
 ---
 - name: update images
-  hosts: localhost
+  hosts: remote
   gather_facts: no
   become: yes
   vars_files:
@@ -29,21 +29,13 @@
     with_nested: 
       - "{{images.starlingx.names}}"
       - "{{images.starlingx.tags}}"
-  
-  - name: docker remove local images
-    docker_image:
-      name: "{{local_registry}}/{{item[0]}}"
-      tag: "{{item[1]}}"
-      state: absent
-    with_nested: 
-      - "{{images.starlingx.names}}"
-      - "{{images.starlingx.tags}}"
 
   - name: Tag and push starlingx images to local registry
     docker_image:
       name: "{{item[0]}}"
       tag: "{{item[1]}}"
       repository: "{{local_registry}}/{{item[0]}}"
+      force_tag: yes
       push: yes
       source: pull
     with_nested: 

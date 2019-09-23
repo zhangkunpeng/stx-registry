@@ -1,0 +1,57 @@
+---
+- name: load and push images
+  hosts: remote
+  gather_facts: no
+  become: yes
+  vars_files:
+  - host_vars/stx_images.yml
+  - host_vars/registry.yml
+
+  tasks:
+  - debug: var=images
+
+  - name: Install Docker Service
+    apt: name=docker update_cache=yes
+
+  - name: Install pip
+    easy_install: 
+      name: pip
+      state: latest
+
+  - name: Install Docker-py
+    pip: name=docker-py
+
+  - name: Get list of archived files
+    find:
+      paths: "{{ docker_images_archive_source }}"
+      patterns: "*.tar"
+    register: archive_find_output
+    # run_once: true
+    # delegate_to: localhost
+
+  - name: Load system images
+    # Due to docker_image module deficiency, resort to shell
+    shell: docker load < {{ docker_images_archive_source }}/{{ item.path | basename }}
+    with_items: "{{ archive_find_output.files }}"
+
+  - name: push to a private registry
+    docker_image:
+      name: "{{item}}"
+      repository: "{{local_registry}}/{{item}}"
+      push: yes
+      source: local
+    with_items:
+      - "{{images.gcr}}"
+      - "{{images.k8s}}"
+      - "{{images.docker}}"
+  
+  - name: push stx images to a private registry
+    docker_image:
+      name: "{{item[0]}}"
+      tag: "{{item[1]}}"
+      repository: "{{local_registry}}/{{item[0]}}"
+      push: yes
+      source: local
+    with_nested: 
+      - "{{images.starlingx.names}}"
+      - "{{images.starlingx.tags}}"

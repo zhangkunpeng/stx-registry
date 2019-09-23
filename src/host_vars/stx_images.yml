@@ -22,6 +22,7 @@ images:
     - starlingx/stx-ovs
     - starlingx/k8s-cni-sriov
     - starlingx/stx-mariadb
+    - starlingx/k8s-plugins-sriov-network-device
     tags:
     - master-centos-stable-latest
     - rc-2.0-centos-stable-latest
@@ -60,6 +61,7 @@ images:
   - k8s.gcr.io/kube-scheduler:v1.13.5
   - k8s.gcr.io/coredns:1.2.6
   - k8s.gcr.io/pause:3.1
+  - k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
   gcr:
   - gcr.io/kubernetes-helm/tiller:v2.13.1
   - gcr.io/google_containers/defaultbackend:1.0
