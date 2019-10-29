@@ -13,6 +13,7 @@
   docker_image:
     name: "{{item[0]}}"
     tag: "{{item[1]}}"
+    repository: "{{local_registry}}/{{item[0]}}"
     source: pull
   with_nested: 
     - "{{images.starlingx.names}}"
