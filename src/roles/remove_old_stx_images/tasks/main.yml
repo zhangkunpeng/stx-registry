@@ -1,8 +1,0 @@
-- name: remove old starlingx images
-  docker_image:
-    name: "{{item[0]}}"
-    tag: "{{item[1]}}"
-    state: absent
-  with_nested: 
-    - "{{images.starlingx.names}}"
-    - "{{images.starlingx.tags}}"

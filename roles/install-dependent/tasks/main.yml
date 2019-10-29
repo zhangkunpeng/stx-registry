@@ -1,0 +1,26 @@
+# - name: ensure requirements for pip are installed
+#   apt:
+#     name: "python-pip"
+#     state: latest
+#     update_cache: true
+#   ignore_errors: yes
+
+# - name: ensure requirements for pip are installed
+#   yum:
+#     name: "python-pip"
+#     state: latest
+#     update_cache: true
+#   ignore_errors: yes
+
+- name: download get-pip.py
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: "/tmp/get-pip.py"
+    mode: 0755
+
+- name: install pip
+  command: /tmp/get-pip.py
+
+- name: install ansible docker modules pip requirements 
+  pip:
+    name: docker-py

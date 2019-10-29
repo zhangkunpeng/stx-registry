@@ -1,11 +1,10 @@
 ---
 - name: archive images
-  hosts: remote
+  hosts: local
   gather_facts: no
   become: yes
   vars_files:
-  - host_vars/stx_images.yml
-  - host_vars/registry.yml
+  - host_vars/main.yml
 
   tasks:
   - debug: var=images

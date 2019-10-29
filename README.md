@@ -1,8 +1,9 @@
-# starlingx_images_update
+# stx-registry
 
 ## 说明
-该项目是为了更新StarlingX的docker images, 解决国内无法访问gcr.io k8s.gcr.io镜像仓库的问题，可以每天运行一次，以保证本地仓库中StarlingX项目镜像最新。
+该项目是为了StarlingX安装部署创建本地registry, 解决国内无法访问gcr.io k8s.gcr.io镜像仓库的问题。
 ## 使用方法
-1. 安装ansible, git
-2. git clone https://github.com/zhangkunpeng/starlingx_images_update.git
-3. ansible-playbook starlingx_images_update/src/update.yml
+1. 安装git,pip
+2. git clone https://github.com/zhangkunpeng/stx-registry.git
+3. cd stx-registry && pip install -r requirements.txt && ansible-galaxy install geerlingguy.docker
+4. ansible-playbook main.yml --limit localhost
