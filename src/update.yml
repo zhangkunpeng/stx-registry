@@ -1,6 +1,6 @@
 ---
 - name: update images
-  hosts: remote
+  hosts: localhost
   gather_facts: no
   become: yes
   vars_files:
