@@ -1,0 +1,78 @@
+- name: pull starlingx images
+  docker_image:
+    name: "{{item[0]}}"
+    tag: "{{item[1]}}"
+    source: pull
+  with_nested: 
+    - "{{images.starlingx.names}}"
+    - "{{images.starlingx.tags}}"
+
+- name: pull docker.io images
+  docker_image:
+    name: "{{item}}"
+    repository: "{{local_registry}}/{{item | regex_replace('(docker.io)/')}}"
+    source: pull
+  with_items: 
+    - "{{images.docker}}"
+
+- name: pull quay.io images
+  docker_image:
+    name: "{{item}}"
+    repository: "{{local_registry}}/{{item | regex_replace('(quay.io)/')}}"
+    source: pull
+  with_items: 
+    - "{{images.quay}}"
+
+
+- name: pull gcr.io images
+  docker_image:
+    name: "{{ gcr_registry + item | regex_replace('gcr.io/')}}"
+    repository: "{{local_registry}}/{{item | regex_replace('gcr.io/')}}"
+    source: pull
+  with_items: 
+    - "{{images.gcr}}"
+
+- name: pull k8s.gcr.io images
+  docker_image:
+    name: "{{ k8s_registry + item | regex_replace('k8s.gcr.io/')}}"
+    repository: "{{local_registry}}/{{item | regex_replace('k8s.gcr.io/')}}"
+    source: pull
+  with_items: 
+    - "{{images.k8s}}"
+
+- name: push starlingx images to local registry
+  docker_image:
+    name: "{{local_registry}}/{{item[0]}}"
+    tag: "{{item[1]}}"
+    push: yes
+  with_nested: 
+    - "{{images.starlingx.names}}"
+    - "{{images.starlingx.tags}}"
+
+- name: push docker.io images to local registry
+  docker_image:
+    name: "{{local_registry}}/{{item | regex_replace('(docker.io)/')}}"
+    push: yes
+  with_items: 
+    - "{{images.docker}}"
+
+- name: push quay.io images to local registry
+  docker_image:
+    name: "{{local_registry}}/{{item | regex_replace('(quay.io)/')}}"
+    push: yes
+  with_items: 
+    - "{{images.quay}}"
+
+- name: push gcr.io images to local registry
+  docker_image:
+    name: "{{local_registry}}/{{item | regex_replace('gcr.io/')}}"
+    push: yes
+  with_items: 
+    - "{{images.gcr}}"
+
+- name: Tag and push k8s.gcr.io images to local registry
+  docker_image:
+    name: "{{local_registry}}/{{item | regex_replace('k8s.gcr.io/')}}"
+    push: yes
+  with_items: 
+    - "{{images.k8s}}"

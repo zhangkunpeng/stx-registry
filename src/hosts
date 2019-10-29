@@ -5,7 +5,7 @@ all:
       ansible_connection: local
       
     remote:
-      ansible_ssh_host: 172.16.130.131
+      ansible_ssh_host: 172.16.130.188
       ansible_ssh_port: 22
       ansible_ssh_user: starlingx
       ansible_ssh_pass: 99cloud

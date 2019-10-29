@@ -1,4 +1,9 @@
 ---
+
+local_registry: localhost:5000
+gcr_registry: gcr.azk8s.cn/
+k8s_registry: gcr.azk8s.cn/google-containers/
+
 images:
   starlingx:
     names:
@@ -72,3 +77,5 @@ images:
   gcr:
   - gcr.io/kubernetes-helm/tiller:v2.13.1
   - gcr.io/google_containers/defaultbackend:1.0
+
+

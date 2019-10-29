@@ -1,11 +1,18 @@
+---
+- name: registry dir exist
+  file:
+    path: /var/lib/registry
+    state: directory
+    mode: '0755'
 
-- name: Install Docker Service
-  apt: name=docker update_cache=yes
-
-- name: Install pip
-  easy_install: 
-    name: pip
-    state: latest
-
-- name: Install Docker-py
-  pip: name=docker-py
+- name: run docker registry
+  become: yes
+  docker_container:
+    name: registry
+    image: registry:2
+    state: started
+    restart_policy: always
+    ports:
+    - "5000:5000"
+    volumes:
+    - "/var/lib/registry:/var/lib/registry"

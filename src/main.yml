@@ -1,0 +1,13 @@
+---
+- name: update images
+  hosts: remote
+  become: yes
+  vars_files:
+  - host_vars/stx_images.yml
+  - host_vars/registry.yml
+
+  roles:
+  - geerlingguy.docker
+  - install_docker_registry
+#  - remove_old_stx_images
+  - push_images
