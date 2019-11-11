@@ -1,7 +1,7 @@
 ---
 - name: remove old starlingx images
   docker_image:
-    name: "{{item[0]}}"
+    name: "{{ docker_registry + item[0]}}"
     tag: "{{item[1]}}"
     state: absent
   with_nested: 
@@ -11,7 +11,7 @@
 
 - name: pull starlingx images
   docker_image:
-    name: "{{item[0]}}"
+    name: "{{ docker_registry + item[0]}}"
     tag: "{{item[1]}}"
     repository: "{{local_registry}}/{{item[0]}}"
     source: pull
@@ -29,7 +29,7 @@
 
 - name: pull quay.io images
   docker_image:
-    name: "{{item}}"
+    name: "{{ quay_registry + item | regex_replace('quay.io/')}}"
     repository: "{{local_registry}}/{{item | regex_replace('(quay.io)/')}}"
     source: pull
   with_items: 
