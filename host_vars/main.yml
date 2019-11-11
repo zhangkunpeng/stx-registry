@@ -4,7 +4,7 @@ gcr_registry: gcr.azk8s.cn/
 k8s_registry: gcr.azk8s.cn/google-containers/
 quay_registry: quay.azk8s.cn/
 docker_registry: dockerhub.azk8s.cn/
-clean_images: False
+clean_image_cache: False
 
 images:
   starlingx:

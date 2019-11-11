@@ -7,7 +7,7 @@
   with_nested: 
     - "{{images.starlingx.names}}"
     - "{{images.starlingx.tags[0]}}"
-  when: clean_images
+  when: clean_image_cache
 
 - name: pull starlingx images
   docker_image:
