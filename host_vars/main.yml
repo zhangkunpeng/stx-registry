@@ -33,7 +33,9 @@ images:
     tags:
     - master-centos-stable-latest
     - rc-2.0-centos-stable-latest
+    - rc-3.0-centos-stable-latest
   docker:
+  - starlingx/stx-fm-rest-api:master-centos-stable-latest 
   - rabbitmq:3.7-management
   - kolla/ubuntu-source-nova-novncproxy:ocata
   - rabbitmq:3.7.13-management
@@ -52,6 +54,8 @@ images:
   - kbudde/rabbitmq-exporter:v0.21.0
   - nginx:1.13.3
   - prom/mysqld-exporter:v0.10.0
+  - starlingx/multus:v3.2.16
+  - starlingx/ceph-config-helper:v1.15.0
   quay:
   - quay.io/airshipit/armada:dd2e56c473549fd16f94212b553ed58c48d1f51b-ubuntu_bionic
   - quay.io/airshipit/armada:8a1638098f88d92bf799ef4934abe569789b885e-ubuntu_bionic
@@ -75,6 +79,12 @@ images:
   - k8s.gcr.io/kube-controller-manager:v1.16.0
   - k8s.gcr.io/kube-proxy:v1.16.0
   - k8s.gcr.io/kube-scheduler:v1.16.0
+  - k8s.gcr.io/coredns:1.6.2
+  - k8s.gcr.io/kube-proxy:v1.16.2
+  - k8s.gcr.io/kube-controller-manager:v1.16.2
+  - k8s.gcr.io/kube-apiserver:v1.16.2
+  - k8s.gcr.io/kube-scheduler:v1.16.2
+  - k8s.gcr.io/etcd:3.3.15-0
   - k8s.gcr.io/coredns:1.6.2
   gcr:
   - gcr.io/kubernetes-helm/tiller:v2.13.1
